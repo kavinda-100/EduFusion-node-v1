@@ -1,0 +1,35 @@
+# Based on https://raw.githubusercontent.com/github/gitignore/main/Node.gitignore
+
+# Logs
+
+logs
+_.log
+npm-debug.log_
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Caches
+
+.cache
+
+frontend/node_modules/
+node_modules/
+
+.idea
+.idea/*
+.vscode
+.DS_Store
+dist/
+build/
+
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+tsconfig.app.tsbuildinfo
+tsconfig.node.tsbuildinfo
+

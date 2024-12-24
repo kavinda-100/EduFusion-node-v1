@@ -1,0 +1,19 @@
+start command - "start": "bun install && cd frontend && bun install && bun run build && cd .. && bun run server/index.test.ts",
+
+------------for frontend----------------
+/* Add the path alias here */
+
+    "baseUrl": ".",
+    "paths": {
+      "@shared/*": ["../shared/*"],
+      "@src/*": ["./src/*"]
+    }
+
+    resolve: {
+        alias: {
+          '@shared': path.resolve(__dirname, '../shared'),
+          '@src': path.resolve(__dirname, './src'),
+        },
+
+--------------------------------------
+
