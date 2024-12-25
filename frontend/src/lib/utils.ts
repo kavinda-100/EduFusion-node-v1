@@ -75,3 +75,11 @@ export const getCurrentTime = () => {
   });
 };
 
+export const generateIDs = (length: number, code: string) => {
+    const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+    let randomizing = ''
+    for (let i = 0; i < length; i++) {
+        randomizing += chars[Math.floor(Math.random() * chars.length)];
+    }
+    return `${code}_${randomizing}`;
+}
