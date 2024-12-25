@@ -28,6 +28,14 @@ export type RadialChartDataType = {
 };
 
 export type SingleAnnouncementType = {
+  courseCode: string;
+  subject: string;
+  replies: number;
+  userName: string;
+  thumbnail: string;
+};
+
+export type LearnerSupportType = {
   subject: string;
   replies: number;
   userName: string;

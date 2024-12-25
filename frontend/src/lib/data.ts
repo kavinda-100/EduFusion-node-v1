@@ -1,7 +1,7 @@
-import { faker } from "@faker-js/faker";
-import { zodClassSchemaType } from "@shared/zod/class/class";
-import { zodUserSchemaType } from "@shared/zod/user/user.zod";
-import { SingleAnnouncementType } from "@/types";
+import {faker} from "@faker-js/faker";
+import {zodClassSchemaType} from "@shared/zod/class/class";
+import {zodUserSchemaType} from "@shared/zod/user/user.zod";
+import {LearnerSupportType, SingleAnnouncementType} from "@/types";
 
 export const generateRandomClassData = (): zodClassSchemaType[] => {
   const classData: zodClassSchemaType[] = [];
@@ -108,7 +108,37 @@ export const generateFakeAnnouncement = (
 
   Array.from({ length: count }, () => {
     const data: SingleAnnouncementType = {
-      subject: faker.lorem.words(3),
+      courseCode: faker.string.alphanumeric(10),
+      subject: faker.lorem.words(20),
+      replies: Math.floor(Math.random() * 100),
+      userName: faker.person.firstName(),
+      thumbnail: faker.image.avatar(),
+    };
+
+    announcement.push(data);
+  });
+
+  return announcement;
+};
+
+export const generateSingleFakeAnnouncement = (): SingleAnnouncementType => {
+  return {
+    courseCode: faker.string.alphanumeric(10),
+    subject: faker.lorem.words(20),
+    replies: Math.floor(Math.random() * 100),
+    userName: faker.person.firstName(),
+    thumbnail: faker.image.avatar(),
+  };
+};
+
+export const generateFakeLearnerSupportRequests = (
+    count: number,
+): LearnerSupportType[] => {
+  const announcement: LearnerSupportType[] = [];
+
+  Array.from({ length: count }, () => {
+    const data: LearnerSupportType = {
+      subject: faker.lorem.words(20),
       replies: Math.floor(Math.random() * 100),
       userName: faker.person.firstName(),
       thumbnail: faker.image.avatar(),
