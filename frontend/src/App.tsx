@@ -11,7 +11,7 @@ import {
     ForgotPassword,
 } from "./pages";
 import { MangeClass, MangeUser, ManageCourse } from "@/section/admin";
-import { Announcements, LearnerSupport } from "@/section/teacher";
+import { Announcements, LearnerSupport, LearnerSupportReply, ViewSingleAnnouncement } from "@/section/teacher";
 import ProtectLayout from "@/layouts/ProtectLayout.tsx";
 import { useAppDispatch, useAppSelector } from "@/store/hooks.ts";
 import { setUser, logout } from "@/store/features/userSlice.ts";
@@ -65,7 +65,9 @@ const App = () => {
                 />
                 {/* route for teacher */}
                 <Route path="/dashboard/announcements" element={<Announcements />} />
+                <Route path="/dashboard/announcements/view/:coursecode" element={<ViewSingleAnnouncement />} />
                 <Route path="/dashboard/learner-support" element={<LearnerSupport />} />
+                <Route path="/dashboard/learner-support/reply/:username" element={<LearnerSupportReply />} />
             </Route>
         </Routes>
     );
