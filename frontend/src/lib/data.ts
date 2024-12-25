@@ -2,6 +2,9 @@ import {faker} from "@faker-js/faker";
 import {zodClassSchemaType} from "@shared/zod/class/class";
 import {zodUserSchemaType} from "@shared/zod/user/user.zod";
 import {LearnerSupportType, SingleAnnouncementType} from "@/types";
+import {
+  zodCourseActivitySubmissionSchemaTypeOptional
+} from "@shared/zod/courseActivities/submission.ts";
 
 export const generateRandomClassData = (): zodClassSchemaType[] => {
   const classData: zodClassSchemaType[] = [];
@@ -149,3 +152,27 @@ export const generateFakeLearnerSupportRequests = (
 
   return announcement;
 };
+
+export const generateFakeAssignments = (count: number, course_code: string): zodCourseActivitySubmissionSchemaTypeOptional[] => {
+    const assignments: zodCourseActivitySubmissionSchemaTypeOptional[] = [];
+
+    const isBoolean = [true, false];
+
+    Array.from({ length: count }, () => {
+      const Bool = isBoolean[Math.floor(Math.random() * isBoolean.length)];
+        const data: zodCourseActivitySubmissionSchemaTypeOptional = {
+          course_code: course_code,
+          student_id: faker.string.uuid(),
+          assigment_id: faker.string.uuid(),
+          submission_date: faker.date.past().toISOString(),
+          score: Bool ? String(faker.number.int({min: 0, max: 100})) : undefined,
+          feedback: Bool ? faker.lorem.paragraph(50) : undefined,
+          submission_url: faker.internet.url(),
+          status: faker.helpers.arrayElement(["pending", "submitted", "graded", "overdue"]),
+        };
+
+        assignments.push(data);
+    });
+
+    return assignments;
+}

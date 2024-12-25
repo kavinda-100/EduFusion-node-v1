@@ -5,6 +5,7 @@ import NotFound from "@/pages/NotFound.tsx";
 import Reports from "@/pages/Reports.tsx";
 import Profile from "@/pages/Profile.tsx";
 import ForgotPassword from "@/pages/ForgotPassword.tsx";
+import Assignment from "@/pages/Assignment.tsx";
 
 export {
   Dashboard,
@@ -14,4 +15,5 @@ export {
   Reports,
   Profile,
   ForgotPassword,
+    Assignment,
 };

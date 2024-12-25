@@ -1,17 +1,11 @@
 import mongoose from "mongoose";
 import type {zodCourseActivitySubmissionSchemaType} from "../../shared/zod/courseActivities/submission";
 
-type zodWithoutCourseCode = Omit<zodCourseActivitySubmissionSchemaType, "assignment_id">;
-
-type courseActivitySubmissionSchemaType = zodWithoutCourseCode & {
-    assignment_id: string
-}
-
-const courseActivitySubmissionSchema = new mongoose.Schema<courseActivitySubmissionSchemaType>({
+const courseActivitySubmissionSchema = new mongoose.Schema<zodCourseActivitySubmissionSchemaType>({
     course_code: {type: String, required: true},
     student_id: {type: String, required: true},
-    assignment_id: {type: String, required: true},
-    submission_date: {type: Date, required: true},
+    assigment_id: {type: String, required: true},
+    submission_date: {type: String, required: true},
     score: {type: Number},
     feedback: {type: String},
     submission_url: {type: String, required: true},

@@ -9,6 +9,7 @@ import {
     Reports,
     Profile,
     ForgotPassword,
+    Assignment,
 } from "./pages";
 import { MangeClass, MangeUser, ManageCourse } from "@/section/admin";
 import { Announcements, LearnerSupport, LearnerSupportReply, ViewSingleAnnouncement } from "@/section/teacher";
@@ -56,6 +57,7 @@ const App = () => {
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/dashboard/reports" element={<Reports />} />
                 <Route path="/dashboard/profile" element={<Profile />} />
+                <Route path="/dashboard/assignments" element={<Assignment />} />
                 {/* route for admin */}
                 <Route path="/dashboard/admin/manage-class" element={<MangeClass />} />
                 <Route path="/dashboard/admin/manage-user" element={<MangeUser />} />

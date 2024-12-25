@@ -9,7 +9,7 @@ export const zodCourseActivitySubmissionSchema = z.object({
     course_code: z.string({message: "Course code is required"}),
     student_id: z.string({message: "Student id is required"}),
     assigment_id: z.string({message: "Assignment id is required"}),
-    submission_date: z.date(),
+    submission_date: z.string(),
     score: z.number().optional(),
     feedback: z.string().optional(),
     submission_url: z.string({message: "Submission url is required"}).url({message: "Invalid url"}),
@@ -17,3 +17,11 @@ export const zodCourseActivitySubmissionSchema = z.object({
 });
 
 export type zodCourseActivitySubmissionSchemaType = z.infer<typeof zodCourseActivitySubmissionSchema>;
+
+// make the "score" and "feedback" fields optional
+export const zodCourseActivitySubmissionSchemaOptional = zodCourseActivitySubmissionSchema.extend({
+    score: z.string().optional(),
+    feedback: z.string().optional(),
+});
+
+export type zodCourseActivitySubmissionSchemaTypeOptional = z.infer<typeof zodCourseActivitySubmissionSchemaOptional>;
